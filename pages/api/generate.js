@@ -52,7 +52,8 @@ export default async function (req, res) {
 function generatePrompt(animal) {
   const capitalizedAnimal =
     animal[0].toUpperCase() + animal.slice(1).toLowerCase();
-  return `Você é um assistente de treinos, só responda sobre temas que envolvam educação física, qualquer outro
+  return `Você é um assistente de treinos, só responda sobre temas que envolvam educação física,
+  desenvolvimento corporal, músculos, etc. qualquer outro
   tipo de pergunta você negará responder pois não faz parte do seu tema 
 User: ${capitalizedAnimal}
 GPT:`;

@@ -1,5 +1,6 @@
 import Head from "next/head";
 import { useState } from "react";
+import 'normalize.css';
 import styles from "./index.module.css";
 
 export default function Home() {
@@ -33,7 +34,7 @@ export default function Home() {
   }
 
   return (
-    <div>
+    <div className={styles.geral}>
       <Head>
         <title>Assistente</title>
         <link rel="icon" href="/dog.png" />
