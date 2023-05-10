@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import SpeechButton from '../services/SpeechButton'
 import 'normalize.css';
 import styles from "./index.module.css";
@@ -16,7 +16,7 @@ export default function Home() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ animal: animalInput }),
+        body: JSON.stringify({ animal: document.querySelector("#ValorInserido").value }),
       });
 
       const data = await response.json();
@@ -24,6 +24,7 @@ export default function Home() {
         throw data.error || new Error(`Request failed with status ${response.status}`);
       }
       
+
       setResult(data.result);
       console.log(data.result)
       setAnimalInput("");
@@ -36,6 +37,7 @@ export default function Home() {
 
   return (
     <div className={styles.geral}>
+    <SpeechButton />
       <Head>
         <title>Assistente</title>
         <link rel="icon" href="/dog.png" />
@@ -53,7 +55,6 @@ export default function Home() {
             value={animalInput}
             onChange={(e) => setAnimalInput(e.target.value)}
           />
-          <SpeechButton />
           <input type="submit" value="Perguntar" />
         </form>
         <div className={styles.result}>{result}</div>
