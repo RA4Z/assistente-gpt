@@ -1,5 +1,6 @@
 import Head from "next/head";
 import { useState } from "react";
+import SpeechButton from '../services/SpeechButton'
 import 'normalize.css';
 import styles from "./index.module.css";
 
@@ -45,12 +46,14 @@ export default function Home() {
         <h3>Pergunte ao assistente</h3>
         <form onSubmit={onSubmit}>
           <input
+            id="ValorInserido"
             type="text"
             name="animal"
             placeholder="Pergunte aqui"
             value={animalInput}
             onChange={(e) => setAnimalInput(e.target.value)}
           />
+          <SpeechButton />
           <input type="submit" value="Perguntar" />
         </form>
         <div className={styles.result}>{result}</div>
