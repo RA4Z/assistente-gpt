@@ -27,7 +27,7 @@
   padding-top: 60px;
 }
 .main .icon {
-  width: 34px;
+  border: 0;
 }
 .main h3 {
   font-size: 32px;
@@ -63,5 +63,9 @@
 }
 .main .result {
   font-weight: bold;
+  flex: column;
+  align-items: center;
+  text-align: center;
+  margin: 300px;
   margin-top: 40px;
 }

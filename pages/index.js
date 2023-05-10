@@ -21,8 +21,9 @@ export default function Home() {
       if (response.status !== 200) {
         throw data.error || new Error(`Request failed with status ${response.status}`);
       }
-
+      
       setResult(data.result);
+      console.log(data.result)
       setAnimalInput("");
     } catch(error) {
       // Consider implementing your own error handling logic here
@@ -34,22 +35,22 @@ export default function Home() {
   return (
     <div>
       <Head>
-        <title>OpenAI Quickstart</title>
+        <title>Assistente</title>
         <link rel="icon" href="/dog.png" />
       </Head>
 
       <main className={styles.main}>
-        <img src="/dog.png" className={styles.icon} />
-        <h3>Name my pet</h3>
+      <iframe src="https://embed.lottiefiles.com/animation/84336" className={styles.icon}></iframe>
+        <h3>Pergunte ao assistente</h3>
         <form onSubmit={onSubmit}>
           <input
             type="text"
             name="animal"
-            placeholder="Enter an animal"
+            placeholder="Pergunte aqui"
             value={animalInput}
             onChange={(e) => setAnimalInput(e.target.value)}
           />
-          <input type="submit" value="Generate names" />
+          <input type="submit" value="Perguntar" />
         </form>
         <div className={styles.result}>{result}</div>
       </main>
